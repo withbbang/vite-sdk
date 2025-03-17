@@ -1,3 +1,4 @@
+import { getMethod } from './api';
 import { add, subtract } from './operations';
 import { setBanner } from './utils/banner';
 
@@ -22,6 +23,10 @@ class Operations {
 
   public subtract(a: number, b: number): number {
     return subtract(a, b);
+  }
+
+  public getMethodTest(): any {
+    getMethod('https://jsonplaceholder.typicode.com/todos/1');
   }
 }
 

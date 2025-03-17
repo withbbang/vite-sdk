@@ -13,5 +13,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `;
 
-OperationsSingleton.add(1, 2);
-OperationsSingleton.subtract(1, 2);
+OperationsSingleton.getMethodTest();

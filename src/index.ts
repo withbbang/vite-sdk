@@ -1,17 +1,11 @@
 import { add, subtract } from './operations';
+import { setBanner } from './utils/banner';
 
 class Operations {
   private static instance: Operations;
 
   private constructor() {
-    console.log(
-      '██╗   ██╗██╗████████╗███████╗    ███████╗██████╗ ██╗  ██╗\n' +
-        '██║   ██║██║╚══██╔══╝██╔════╝    ██╔════╝██╔══██╗██║ ██╔╝\n' +
-        '██║   ██║██║   ██║   █████╗      ███████╗██║  ██║█████╔╝ \n' +
-        '╚██╗ ██╔╝██║   ██║   ██╔══╝      ╚════██║██║  ██║██╔═██╗ \n' +
-        ' ╚████╔╝ ██║   ██║   ███████╗    ███████║██████╔╝██║  ██╗\n' +
-        '  ╚═══╝  ╚═╝   ╚═╝   ╚══════╝    ╚══════╝╚═════╝ ╚═╝  ╚═╝',
-    );
+    setBanner();
   }
 
   public static getInstance(): Operations {

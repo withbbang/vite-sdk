@@ -1,22 +1,24 @@
-import pkg from "./package.json";
-import { defineConfig } from "vite";
+import pkg from './package.json';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: "./",
+  base: './',
   plugins: [],
   build: {
-    minify: "terser",
+    minify: 'terser', // 'terser' or 'esbuild'
     lib: {
       name: pkg.name,
       fileName: (format) => {
-        if (format === "umd") {
-          return "index.js";
-        } else if (format === "es") {
-          return "index.esm.js";
+        if (format === 'umd') {
+          return 'index.js';
+        } else if (format === 'es') {
+          return 'index.esm.js';
+        } else {
+          return 'index.js';
         }
       },
-      entry: "src/index.ts",
-      formats: ["umd", "es"],
+      entry: 'src/index.ts',
+      formats: ['umd', 'es'],
     },
     sourcemap: false,
   },

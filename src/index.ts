@@ -1,9 +1,34 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0;
-  const setCounter = (count: number) => {
-    counter = count;
-    element.innerHTML = `count is ${counter}`;
-  };
-  element.addEventListener("click", () => setCounter(counter + 1));
-  setCounter(0);
+import { add, subtract } from './operations';
+
+class Operations {
+  private static instance: Operations;
+
+  private constructor() {
+    console.log(
+      '██╗   ██╗██╗████████╗███████╗    ███████╗██████╗ ██╗  ██╗\n' +
+        '██║   ██║██║╚══██╔══╝██╔════╝    ██╔════╝██╔══██╗██║ ██╔╝\n' +
+        '██║   ██║██║   ██║   █████╗      ███████╗██║  ██║█████╔╝ \n' +
+        '╚██╗ ██╔╝██║   ██║   ██╔══╝      ╚════██║██║  ██║██╔═██╗ \n' +
+        ' ╚████╔╝ ██║   ██║   ███████╗    ███████║██████╔╝██║  ██╗\n' +
+        '  ╚═══╝  ╚═╝   ╚═╝   ╚══════╝    ╚══════╝╚═════╝ ╚═╝  ╚═╝',
+    );
+  }
+
+  public static getInstance(): Operations {
+    if (!Operations.instance) {
+      Operations.instance = new Operations();
+    }
+
+    return Operations.instance;
+  }
+
+  public add(a: number, b: number): number {
+    return add(a, b);
+  }
+
+  public subtract(a: number, b: number): number {
+    return subtract(a, b);
+  }
 }
+
+export const OperationsSingleton = Operations.getInstance();

@@ -1,7 +1,7 @@
-import "./style.css";
-import { setupCounter } from "../src/index";
+import './style.css';
+import { OperationsSingleton } from '../src/index';
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <h1>Vite + TypeScript</h1>
     <div class="card">
@@ -13,4 +13,5 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </div>
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+OperationsSingleton.add(1, 2);
+OperationsSingleton.subtract(1, 2);

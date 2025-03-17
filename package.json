@@ -7,7 +7,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc && tsx ./scripts/build-api.ts"
+    "build": "env-cmd -f .env.prod vite build && tsc && tsx ./scripts/build-api.ts",
+    "build:dev": "env-cmd -f .env.dev vite build && tsc && tsx ./scripts/build-api.ts",
+    "build:prod": "env-cmd -f .env.prod vite build && tsc && tsx ./scripts/build-api.ts"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.36.0",
@@ -15,6 +17,10 @@
     "terser": "5.16.3",
     "tsx": "^3.12.7",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-remove-console": "^2.2.0"
+  },
+  "dependencies": {
+    "env-cmd": "^10.1.0"
   }
 }

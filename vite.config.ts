@@ -1,9 +1,15 @@
 import pkg from './package.json';
 import { defineConfig } from 'vite';
+import removeConsole from 'vite-plugin-remove-console';
 
 export default defineConfig({
   base: './',
-  plugins: [],
+  plugins: [
+    process.env.VITE_MODE === 'prod' &&
+      removeConsole({
+        external: ['warn', 'error'], // 제외할 console 메서드.
+      }),
+  ],
   build: {
     minify: 'terser', // 'terser' or 'esbuild'
     lib: {

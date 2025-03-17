@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="./dist/index.js"></script>
+    <title>Test</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    // 스크립트가 로드된 후 실행될 코드
+    document.addEventListener('DOMContentLoaded', function () {
+      // SDK에 접근 (전역 변수 'vite-sdk'로 노출됨)
+      const sdk = window['vite-sdk'];
+
+      // Singleton 인스턴스에 접근
+      const operationInstance = sdk.OperationsSingleton;
+
+      // 메서드 사용 예시
+      const result = operationInstance.add(5, 3);
+      console.log('5 + 3 =', result);
+
+      const subtract = operationInstance.subtract(10, 4);
+      console.log('10 - 4 =', subtract);
+    });
+  </script>
+</html>

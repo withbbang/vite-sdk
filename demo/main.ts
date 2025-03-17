@@ -1,5 +1,5 @@
 import './style.css';
-import { OperationsSingleton } from '../src/index';
+import { Operations } from '../src/index';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -13,4 +13,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `;
 
+const OperationsSingleton = Operations.init({ value: 'initial value' });
+
 OperationsSingleton.getMethodTest();
+OperationsSingleton.getValue();

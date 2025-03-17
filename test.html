@@ -13,19 +13,20 @@
     // 스크립트가 로드된 후 실행될 코드
     document.addEventListener('DOMContentLoaded', function () {
       // SDK에 접근 (전역 변수 'vite-sdk'로 노출됨)
-      const sdk = window['vite-sdk'];
-
-      // Singleton 인스턴스에 접근
-      const operationInstance = sdk.OperationsSingleton;
+      const sdk = window['vite-sdk'].Operations.init({
+        value: 'initial value',
+      });
 
       // 메서드 사용 예시
-      const result = operationInstance.add(5, 3);
+      const result = sdk.add(5, 3);
       console.log('5 + 3 =', result);
 
-      const subtract = operationInstance.subtract(10, 4);
+      const subtract = sdk.subtract(10, 4);
       console.log('10 - 4 =', subtract);
 
-      operationInstance.getMethodTest();
+      sdk.getMethodTest();
+
+      sdk.getValue();
     });
   </script>
 </html>

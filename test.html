@@ -6,7 +6,9 @@
     <script type="text/javascript" src="./dist/index.js"></script>
     <title>Test</title>
   </head>
-  <body></body>
+  <body>
+    <h1>VITE SDK TEST</h1>
+  </body>
   <script type="text/javascript">
     // 스크립트가 로드된 후 실행될 코드
     document.addEventListener('DOMContentLoaded', function () {
@@ -22,6 +24,8 @@
 
       const subtract = operationInstance.subtract(10, 4);
       console.log('10 - 4 =', subtract);
+
+      operationInstance.getMethodTest();
     });
   </script>
 </html>
